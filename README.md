@@ -9,50 +9,44 @@
 
 <br />
 
-> A premium, production-quality authentication UI inspired by Apple's design philosophy. Built with pure HTML5, CSS3, Bootstrap 5, and Vanilla JavaScript — no frameworks, no backend required.
+> A premium, production-quality authentication UI inspired by Apple design principles. Built with pure HTML5, CSS3, Bootstrap 5, and Vanilla JavaScript — no frameworks, no backend required.
 
 ---
 
 ## 🌟 Project Overview
 
-Lumina is a **frontend-only** authentication system that showcases modern web design principles with an Apple-like aesthetic. Every detail — from the glassmorphism card to the micro-animations and password strength meter — is crafted to create a premium, polished user experience that stands out.
+Lumina is a **frontend-only** authentication system that showcases modern web design principles with a clean light emerald aesthetic. Every detail — from the minimalist card structure to real-time field validation, `localStorage` user persistence, and interactive toasts — is crafted for a smooth, cohesive user experience.
 
 ---
 
 ## ✨ Features
 
 ### Design & UX
-- 🎨 **Apple-inspired Design** — Minimal, elegant, and premium aesthetics
-- 🪟 **Glassmorphism Card** — Frosted glass card with subtle borders and shadows
-- 🌈 **Animated Left Panel** — Deep blue gradient with floating orbs and mesh grid
-- ✨ **Smooth Animations** — Page fade, card slide-up, pill slide-in, floating logo
-- 📱 **Fully Responsive** — Mobile-first design that works on all screen sizes
-- 🌗 **Touch-Friendly** — Large tap targets and haptic-friendly interactions
+- 🎨 **Light Emerald Theme** — Air mint-white background (`#F5FBFA`) with electric emerald CTA (`#0BA37F`)
+- 🔤 **Plus Jakarta Sans Typography** — Geometric humanist typography for maximum legibility
+- 📐 **Centered Solo Card** — Balanced layout focused entirely on the user's intent
+- ✨ **Micro-Animations** — Staggered field reveals, button loading state, and smooth toast transitions
+- 📱 **Fully Responsive** — Mobile-first design optimized for desktop, tablet, and mobile screens
 
 ### Login Page
-- ✅ Real-time email validation
+- ✅ Real-time email & password validation
+- ✅ `localStorage` dynamic account authentication for newly registered users
+- ✅ Automatic email prefill from URL query parameters (`?email=...`)
 - ✅ Password show/hide toggle
-- ✅ Remember Me (localStorage persistence)
-- ✅ Simulated async authentication (mock user database)
-- ✅ Inline error banner with shake animation
-- ✅ Loading button state with spinner
-- ✅ Success toast with redirect simulation
-- ✅ Forgot Password modal with email input
+- ✅ Remember Me functionality
+- ✅ Inline error banner with card shake feedback
+- ✅ Forgot Password modal with email link reset simulation
 - ✅ Social sign-in buttons (Google, Apple)
-- ✅ Page transition animation
 
 ### Registration Page
-- ✅ 6-field form: Full Name, Username, Email, Phone, Password, Confirm
-- ✅ Two-column responsive layout for name/username
-- ✅ **Username availability check** (debounced, simulated async)
-- ✅ Real-time validation for all fields
-- ✅ **Password strength meter** (5 levels: Too Weak → Strong)
-- ✅ **Password rules checklist** (length, uppercase, lowercase, digit, special)
-- ✅ Password match validation
-- ✅ Phone number validation
-- ✅ Character counter for username (0/20)
-- ✅ Terms of Service modal with "I Agree" auto-check
-- ✅ Social sign-up buttons
+- ✅ 6-field registration: Full Name, Username, Email, Phone, Password, Confirm Password
+- ✅ Compact 2-column layout for Name/Username and Password/Confirm Password
+- ✅ Real-time **Username availability check** (checks mock data & `localStorage`)
+- ✅ Real-time **Password strength meter** (5 levels) & rules checklist
+- ✅ **Dynamic user persistence** — registered accounts can immediately log in on the sign-in page
+- ✅ Phone number validation with country code support
+- ✅ Terms of Service modal with "I Agree" auto-check integration
+- ✅ Instant transition and redirect to login with pre-populated email
 
 ### Components
 - 🔔 **Toast Notifications** — Animated, dismissible, with progress bar
@@ -81,7 +75,7 @@ Lumina is a **frontend-only** authentication system that showcases modern web de
 | **Bootstrap 5.3** | Grid, navbar, modal, responsive utilities |
 | **Bootstrap Icons 1.11** | All iconography |
 | **Vanilla JavaScript (ES6+)** | Validation, UI logic, simulated async |
-| **Google Fonts (Poppins)** | Premium typography |
+| **Google Fonts (Plus Jakarta Sans)** | Premium typography |
 
 **No external dependencies beyond the above CDN links.**
 
@@ -163,20 +157,20 @@ npx serve Task2
 ## 🎨 Design System
 
 ### Color Palette
-| Token | Hex | Usage |
-|-------|-----|-------|
-| Primary | `#0071E3` | Buttons, links, focus states |
-| Background | `#F5F5F7` | Page background |
-| Card | `#FFFFFF` | Auth card surface |
-| Text | `#1D1D1F` | Primary body text |
-| Secondary | `#6E6E73` | Subtitles, hints |
-| Border | `#D2D2D7` | Input borders, dividers |
-| Success | `#34C759` | Valid states, available |
-| Error | `#FF3B30` | Error states, validation |
+| Token | Hex | Role |
+|-------|-----|------|
+| Background | `#F5FBFA` | Air mint-white canvas |
+| Card Surface | `#FFFFFF` | Elevated white card |
+| Primary CTA | `#0BA37F` | Electric emerald accent |
+| Headings | `#0D2B22` | Deep forest green |
+| Subtitles | `#5A7A72` | Muted sage |
+| Borders | `#D6EDE8` | Soft mint borders |
+| Success | `#22C55E` | Validation checkmarks |
+| Error | `#EF4444` | Invalid field feedback |
 
 ### Typography
-- **Font**: Poppins (Google Fonts) → system-ui fallback
-- **Weights**: 300 / 400 / 500 / 600 / 700 / 800
+- **Font Family**: `Plus Jakarta Sans` (Google Fonts)
+- **Weights**: 400 (Body), 500 (Subtitles), 600 (Labels/Buttons), 700/800 (Headings)
 
 ---
 
