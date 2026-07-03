@@ -1,0 +1,107 @@
+﻿/* ============================================================
+   LUMINA — RESPONSIVE.CSS  Light Emerald Theme
+   ============================================================ */
+
+/* ── TABLET & BELOW: collapse two-column to one ─────────── */
+@media (max-width: 900px) {
+  .lm-wrap {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .lm-info { display: none; }
+}
+
+/* ── MOBILE (< 640px) ───────────────────────────────────── */
+@media (max-width: 639px) {
+
+  .lm-nav__inner { padding: 0 var(--s4); height: 54px; }
+  .lm-nav__link { display: none; }
+  .lm-pill-btn { font-size: 12.5px; padding: 6px 13px; }
+
+  .lm-stage { padding: var(--s6) var(--s3); }
+
+  .lm-card { padding: var(--s6); border-radius: var(--r-xl); }
+
+  .lm-card__title { font-size: 34px; letter-spacing: -1px; }
+
+  /* Prevent iOS zoom */
+  .form-control-apple { font-size: 16px; }
+
+  /* Touch targets */
+  .btn-apple { min-height: 50px; font-size: 15px; }
+
+  .lm-social { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .btn-social { font-size: 12.5px; padding: 10px 10px; }
+
+  /* Toasts bottom on mobile */
+  .toast-container-apple {
+    top: auto; bottom: 16px;
+    right: 12px; left: 12px;
+  }
+
+  .toast-apple { min-width: unset; max-width: 100%; }
+
+  /* Modal bottom sheet */
+  .modal-apple .modal-content { border-radius: 20px 20px 0 0; }
+  .modal-dialog { margin: auto 0 0; max-height: 90vh; }
+
+  /* Footer */
+  .lm-footer__inner { flex-direction: column; text-align: center; }
+  .lm-footer__links { justify-content: center; }
+}
+
+/* ── VERY SMALL (< 380px) ───────────────────────────────── */
+@media (max-width: 379px) {
+  .lm-card { padding: var(--s5); }
+  .lm-card__title { font-size: 28px; }
+  .lm-social { grid-template-columns: 1fr; }
+}
+
+/* ── HOVER — disable lift on touch ─────────────────────── */
+@media (hover: hover) {
+  .btn-apple:hover:not(:disabled) { transform: translateY(-1px); }
+  .btn-social:hover { transform: translateY(-1px); }
+  .lm-feature:hover { transform: translateY(-2px); }
+}
+
+@media (hover: none) {
+  .btn-apple:active:not(:disabled) { transform: scale(0.98); }
+  .btn-social:active { transform: scale(0.98); }
+}
+
+/* ── REDUCED MOTION ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .lm-bg-blob, .lm-dot { animation: none; }
+}
+
+/* ── HIGH CONTRAST ──────────────────────────────────────── */
+@media (prefers-contrast: high) {
+  .lm-card { border: 2px solid var(--forest); }
+  .form-control-apple { border-width: 2px; }
+  .btn-apple { outline: 2px solid white; outline-offset: 2px; }
+}
+
+/* ── PRINT ──────────────────────────────────────────────── */
+@media print {
+  .lm-nav, .lm-footer, .lm-bg-blob,
+  .toast-container-apple, .loading-overlay,
+  .lm-info { display: none !important; }
+
+  .lm-wrap { grid-template-columns: 1fr; }
+  .lm-card { box-shadow: none; border: 1px solid #ccc; }
+}
+
+/* ── LANDSCAPE MOBILE ───────────────────────────────────── */
+@media (max-width: 767px) and (orientation: landscape) {
+  .lm-stage { padding: var(--s4); }
+  .lm-wrap { max-width: 560px; }
+  .lm-card__title { font-size: 28px; }
+  .lm-card { padding: var(--s5) var(--s6); }
+}

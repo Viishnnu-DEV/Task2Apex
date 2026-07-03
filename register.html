@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create your free Lumina account." />
+  <meta name="theme-color" content="#0BA37F" />
+  <title>Create Account — Lumina</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230BA37F'/><text y='.87em' font-size='68' x='16' fill='white' font-family='system-ui' font-weight='800'>L</text></svg>" />
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay" role="status" aria-label="Creating your account">
+  <div class="loading-spinner">
+    <div class="spinner-ring"></div>
+    <span class="spinner-text">Creating your account…</span>
+  </div>
+</div>
+
+<div class="toast-container-apple" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+<div class="page-transition" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav class="lm-nav" role="navigation" aria-label="Main navigation">
+  <div class="lm-nav__inner">
+    <a class="lm-brand" href="index.html" aria-label="Lumina home">
+      <span class="lm-brand__mark" aria-hidden="true">L</span>
+      <span class="lm-brand__name">Lumina</span>
+    </a>
+    <div class="lm-nav__right">
+      <a href="index.html" class="lm-nav__link">Sign in</a>
+      <a href="index.html" class="lm-pill-btn">
+        Sign in <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="lm-stage lm-stage--center" role="main">
+  <div class="lm-bg-blob lm-bg-blob--a" aria-hidden="true"></div>
+  <div class="lm-bg-blob lm-bg-blob--b" aria-hidden="true"></div>
+
+  <div class="lm-card-solo lm-card-solo--wide">
+
+    <!-- Header -->
+    <div class="lm-card__head">
+      <div class="lm-card__tag" aria-hidden="true">
+        <span class="lm-dot"></span>
+        <span>Free forever</span>
+      </div>
+      <h1 class="lm-card__title">Create account</h1>
+      <p class="lm-card__sub">Join Lumina in seconds. No credit card required.</p>
+    </div>
+
+    <!-- Error Banner -->
+    <div class="form-error-banner" id="formErrorBanner" role="alert">
+      <i class="bi bi-exclamation-circle" aria-hidden="true"></i>
+      <span class="error-msg">Please review the form and try again.</span>
+    </div>
+
+    <!-- Social sign up — top for priority -->
+    <div class="lm-social lm-social--reg fade-in-up delay-1">
+      <button type="button" class="btn-social" aria-label="Sign up with Google">
+        <svg width="16" height="16" viewBox="0 0 18 18" aria-hidden="true" focusable="false">
+          <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+          <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
+          <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+          <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+        </svg>
+        Continue with Google
+      </button>
+      <button type="button" class="btn-social" aria-label="Sign up with Apple">
+        <i class="bi bi-apple" aria-hidden="true"></i>
+        Continue with Apple
+      </button>
+    </div>
+
+    <div class="auth-divider fade-in-up delay-2">
+      <span>or register with email</span>
+    </div>
+
+    <!-- Registration Form -->
+    <form id="registerForm" novalidate autocomplete="on">
+
+      <!-- Row 1: Full Name + Username -->
+      <div class="lm-form-row fade-in-up delay-2">
+
+        <div class="lm-field">
+          <label for="regFullName" class="lm-label">Full name</label>
+          <div class="lm-input-wrap">
+            <i class="bi bi-person-fill lm-input__icon" aria-hidden="true"></i>
+            <input type="text" id="regFullName" name="fullName" class="form-control-apple"
+              placeholder="Jane Smith" autocomplete="name"
+              aria-describedby="nameFeedback" required />
+          </div>
+          <div class="field-feedback" id="nameFeedback" role="alert"></div>
+        </div>
+
+        <div class="lm-field">
+          <div class="lm-label-row">
+            <label for="regUsername" class="lm-label">Username</label>
+            <span id="usernameCounter" class="lm-counter">0/20</span>
+          </div>
+          <div class="lm-input-wrap">
+            <i class="bi bi-at lm-input__icon" aria-hidden="true"></i>
+            <input type="text" id="regUsername" name="username" class="form-control-apple"
+              placeholder="janesmith" autocomplete="username"
+              aria-describedby="usernameFeedback usernameStatus"
+              maxlength="20" required />
+          </div>
+          <div class="username-status" id="usernameStatus" role="status"></div>
+          <div class="field-feedback" id="usernameFeedback" role="alert"></div>
+        </div>
+
+      </div>
+
+      <!-- Email -->
+      <div class="lm-field fade-in-up delay-3">
+        <label for="regEmail" class="lm-label">Email address</label>
+        <div class="lm-input-wrap">
+          <i class="bi bi-envelope-fill lm-input__icon" aria-hidden="true"></i>
+          <input type="email" id="regEmail" name="email" class="form-control-apple"
+            placeholder="you@example.com" autocomplete="email"
+            aria-describedby="emailFeedback" required />
+        </div>
+        <div class="field-feedback" id="emailFeedback" role="alert"></div>
+      </div>
+
+      <!-- Phone -->
+      <div class="lm-field fade-in-up delay-3">
+        <label for="regPhone" class="lm-label">Phone number</label>
+        <div class="lm-input-wrap lm-input-wrap--phone">
+          <i class="bi bi-telephone-fill lm-input__icon" aria-hidden="true"></i>
+          <span class="lm-phone-prefix" aria-hidden="true">+91</span>
+          <input type="tel" id="regPhone" name="phone"
+            class="form-control-apple lm-phone-input"
+            placeholder="98765 43210" autocomplete="tel"
+            aria-describedby="phoneFeedback" required />
+        </div>
+        <div class="field-feedback" id="phoneFeedback" role="alert"></div>
+      </div>
+
+      <!-- Row 2: Password + Confirm -->
+      <div class="lm-form-row fade-in-up delay-4">
+
+        <div class="lm-field input-has-action">
+          <label for="regPassword" class="lm-label">Password</label>
+          <div class="lm-input-wrap">
+            <i class="bi bi-lock-fill lm-input__icon" aria-hidden="true"></i>
+            <input type="password" id="regPassword" name="password" class="form-control-apple"
+              placeholder="Create a password" autocomplete="new-password"
+              aria-describedby="pwFeedback pwRules" required />
+            <button type="button" class="input-action"
+              data-toggle="password" data-target="regPassword" aria-label="Show password">
+              <i class="bi bi-eye"></i>
+            </button>
+          </div>
+          <div class="field-feedback" id="pwFeedback" role="alert"></div>
+          <!-- Strength meter -->
+          <div class="password-strength" aria-label="Password strength">
+            <div class="strength-bars" aria-hidden="true">
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+            </div>
+            <span class="strength-label" id="strengthLabel"></span>
+          </div>
+        </div>
+
+        <div class="lm-field input-has-action">
+          <label for="regConfirmPassword" class="lm-label">Confirm password</label>
+          <div class="lm-input-wrap">
+            <i class="bi bi-lock-fill lm-input__icon" aria-hidden="true"></i>
+            <input type="password" id="regConfirmPassword" name="confirmPassword"
+              class="form-control-apple" placeholder="Repeat your password"
+              autocomplete="new-password" aria-describedby="confirmFeedback" required />
+            <button type="button" class="input-action"
+              data-toggle="password" data-target="regConfirmPassword" aria-label="Show confirm password">
+              <i class="bi bi-eye"></i>
+            </button>
+          </div>
+          <div class="field-feedback" id="confirmFeedback" role="alert"></div>
+        </div>
+
+      </div>
+
+      <!-- Password rules -->
+      <div class="pw-rules lm-pw-rules fade-in-up delay-4" id="pwRules" aria-label="Password requirements">
+        <div class="pw-rule" id="rule-length">
+          <i class="bi bi-circle" aria-hidden="true"></i>
+          <span>At least 8 characters</span>
+        </div>
+        <div class="pw-rule" id="rule-upper">
+          <i class="bi bi-circle" aria-hidden="true"></i>
+          <span>One uppercase letter</span>
+        </div>
+        <div class="pw-rule" id="rule-lower">
+          <i class="bi bi-circle" aria-hidden="true"></i>
+          <span>One lowercase letter</span>
+        </div>
+        <div class="pw-rule" id="rule-digit">
+          <i class="bi bi-circle" aria-hidden="true"></i>
+          <span>One number</span>
+        </div>
+        <div class="pw-rule" id="rule-special">
+          <i class="bi bi-circle" aria-hidden="true"></i>
+          <span>One special character (!@#$…)</span>
+        </div>
+      </div>
+
+      <!-- Terms -->
+      <div class="terms-row fade-in-up delay-5">
+        <label class="check-field" for="regTerms">
+          <input type="checkbox" id="regTerms" class="form-check-apple" name="terms" aria-required="true" />
+          <span class="check-label">
+            I agree to the
+            <a href="#termsModal" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a>
+            and <a href="#">Privacy Policy</a>
+          </span>
+        </label>
+      </div>
+
+      <!-- Submit -->
+      <div class="fade-in-up delay-5">
+        <button type="submit" class="btn-apple" id="registerBtn" aria-label="Create your account">
+          <span>Create account</span>
+          <i class="bi bi-person-check-fill" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </form>
+
+    <p class="lm-card__foot fade-in-up delay-5">
+      Already have an account? <a href="index.html">Sign in here</a>
+    </p>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="lm-footer">
+  <div class="lm-footer__inner">
+    <p class="lm-footer__copy">&copy; 2025 Lumina, Inc.</p>
+    <nav class="lm-footer__links" aria-label="Footer links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Support</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- TERMS MODAL -->
+<div class="modal fade" id="termsModal" tabindex="-1"
+     aria-labelledby="termsModalLabel" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-apple">
+    <div class="modal-content modal-apple">
+      <div class="modal-header">
+        <h2 class="modal-title" id="termsModalLabel">
+          <i class="bi bi-file-text me-2" aria-hidden="true" style="color:var(--primary);"></i>
+          Terms of Service
+        </h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body lm-terms-body">
+        <h3>1. Acceptance of Terms</h3>
+        <p>By creating an account with Lumina, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
+        <h3>2. User Accounts</h3>
+        <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+        <h3>3. Privacy</h3>
+        <p>Your privacy matters. Our Privacy Policy describes how we collect, use, and protect your personal information.</p>
+        <h3>4. Acceptable Use</h3>
+        <p>You agree not to misuse our services, violate any laws, or infringe on the rights of others.</p>
+        <h3>5. Changes to Terms</h3>
+        <p>We may update these terms from time to time. Continued use constitutes acceptance of the updated terms.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-apple-ghost" style="width:auto;padding:10px 20px;" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn-apple" style="width:auto;padding:10px 24px;" data-bs-dismiss="modal"
+          onclick="document.getElementById('regTerms').checked=true; document.getElementById('regTerms').dispatchEvent(new Event('change'))">
+          <i class="bi bi-check-lg" aria-hidden="true"></i>
+          <span>I agree</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>
